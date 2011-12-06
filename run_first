@@ -9,7 +9,7 @@ end
 
 def configure_remote
   `git remote rm jp`
-  `git remote add jp git://github.com/<%= configatron.git.user %>/<%= configatron.git.repo %>.git`
+  `git remote add jp git://github.com/20111212remote/app.git`
 end
 
 def create_first_branch
