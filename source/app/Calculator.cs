@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
+using System.Security;
+using System.Threading;
 
 namespace app
 {
-  public class Calculator
+  public class Calculator : ICalculate
   {
     IDbConnection connection;
 
-    public Calculator(IDbConnection connection,int number,int number2)
+    public Calculator(IDbConnection connection, int number, int number2)
     {
       this.connection = connection;
     }
@@ -34,7 +36,9 @@ namespace app
 
     public void shut_off()
     {
-      throw new NotImplementedException();
+      if (Thread.CurrentPrincipal.IsInRole("this does not matter")) return;
+
+      throw new SecurityException();
     }
   }
 }
