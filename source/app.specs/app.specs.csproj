@@ -118,6 +118,7 @@
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
+    <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="ViewMainDepartmentsInTheStoreSpecs.cs" />
     <Compile Include="ViewTheDepartmentsInADepartmentSpecs.cs" />

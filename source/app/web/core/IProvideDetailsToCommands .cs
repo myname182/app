@@ -1,7 +1,7 @@
 ﻿namespace app.web.core
 {
-  public interface IProvideDetailsToCommands 
+  public interface IProvideDetailsToCommands
   {
-     
+    InputModel map<InputModel>();
   }
 }

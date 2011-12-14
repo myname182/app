@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="infrastructure\Stub.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\StubDepartmentRepository.cs" />

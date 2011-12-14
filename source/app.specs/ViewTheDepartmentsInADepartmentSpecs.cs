@@ -25,6 +25,8 @@ namespace app.specs
         the_main_department = new DepartmentItem();
         the_sub_departments = new List<DepartmentItem> {new DepartmentItem()};
 
+        request.setup(x => x.map<DepartmentItem>()).Return(the_main_department);
+
         department_repository.setup(x => x.get_the_departments_in(the_main_department)).Return(the_sub_departments);
       };
 
@@ -32,7 +34,7 @@ namespace app.specs
         sut.process(request);
 
       It should_display_the_departments_in_a_department = () =>
-        display_engine.received(x => x.display(the_main_department.departments));
+        display_engine.received(x => x.display(the_sub_departments));
 
       static IFindDepartments department_repository;
       static IProvideDetailsToCommands request;
