@@ -6,17 +6,17 @@ namespace app
 {
   public class Calculator
   {
-      private readonly IDbConnection connection;
+    IDbConnection connection;
 
-      public Calculator(IDbConnection connection)
+    public Calculator(IDbConnection connection)
     {
-        this.connection = connection;
+      this.connection = connection;
     }
 
-      public int add(int first, int second)
+    public int add(int first, int second)
     {
       ensure_all_are_positive(first, second);
-            
+
       connection.Open();
 
       return first + second;
@@ -24,7 +24,7 @@ namespace app
 
     static void ensure_all_are_positive(params int[] numbers)
     {
-      if(numbers.Any(x => x<0)) throw new ArgumentException("no!");
+      if (numbers.Any(x => x < 0)) throw new ArgumentException("no!");
     }
   }
 }
