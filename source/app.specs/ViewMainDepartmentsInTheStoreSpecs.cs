@@ -19,12 +19,12 @@ namespace app.specs
     {
       Establish c = () =>
       {
-        department_repository = depends.on<IFindDepartments>();
+        information_in_the_store_repository = depends.on<IFindInformationInTheStore>();
         display_engine = depends.on<IDisplayReports>();
         request = fake.an<IProvideDetailsToCommands>();
         the_main_departments = new List<DepartmentItem> {new DepartmentItem()};
 
-        department_repository.setup(x => x.get_the_main_departments()).Return(the_main_departments);
+        information_in_the_store_repository.setup(x => x.get_the_main_departments()).Return(the_main_departments);
       };
 
       Because b = () =>
@@ -36,7 +36,7 @@ namespace app.specs
         
 
 
-      static IFindDepartments department_repository;
+      static IFindInformationInTheStore information_in_the_store_repository;
       static IProvideDetailsToCommands request;
       static IDisplayReports  display_engine;
       static IEnumerable<DepartmentItem> the_main_departments;

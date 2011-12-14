@@ -19,7 +19,7 @@ namespace app.specs
     {
       Establish c = () =>
       {
-        department_repository = depends.on<IFindDepartments>();
+        information_in_the_store_repository = depends.on<IFindInformationInTheStore>();
         display_engine = depends.on<IDisplayReports>();
         request = fake.an<IProvideDetailsToCommands>();
         the_main_department = new DepartmentItem();
@@ -27,7 +27,7 @@ namespace app.specs
 
         request.setup(x => x.map<DepartmentItem>()).Return(the_main_department);
 
-        department_repository.setup(x => x.get_the_departments_in(the_main_department)).Return(the_sub_departments);
+        information_in_the_store_repository.setup(x => x.get_the_departments_in(the_main_department)).Return(the_sub_departments);
       };
 
       Because b = () =>
@@ -36,7 +36,7 @@ namespace app.specs
       It should_display_the_departments_in_a_department = () =>
         display_engine.received(x => x.display(the_sub_departments));
 
-      static IFindDepartments department_repository;
+      static IFindInformationInTheStore information_in_the_store_repository;
       static IProvideDetailsToCommands request;
       static IDisplayReports display_engine;
       static DepartmentItem the_main_department;

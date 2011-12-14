@@ -7,7 +7,7 @@ namespace app.web.core.stubs
     public void display<Report>(Report report)
     {
       HttpContext.Current.Items.Add("blah", report);
-      HttpContext.Current.Server.Transfer("~/views/DepartmentBrowser.aspx", true);
+      HttpContext.Current.Server.Transfer("~/views/ProductBrowser.aspx", true);
     }
   }
 }

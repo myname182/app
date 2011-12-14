@@ -7,22 +7,22 @@ namespace app.web.application.catalogbrowsing
 {
   public class ViewTheDepartmentsInADepartment : ISupportAStory
   {
-    IFindDepartments department_repository;
+    IFindInformationInTheStore store_catalog;
     IDisplayReports report_engine;
 
-    public ViewTheDepartmentsInADepartment(IFindDepartments department_repository, IDisplayReports report_engine)
+    public ViewTheDepartmentsInADepartment(IFindInformationInTheStore store_catalog, IDisplayReports report_engine)
     {
-      this.department_repository = department_repository;
+      this.store_catalog = store_catalog;
       this.report_engine = report_engine;
     }
 
-    public ViewTheDepartmentsInADepartment():this(Stub.with<StubDepartmentRepository>(),Stub.with<StubDisplayEngine>())
+    public ViewTheDepartmentsInADepartment():this(Stub.with<StubStoreCatalog>(),Stub.with<StubDisplayEngine>())
     {
     }
 
     public void process(IProvideDetailsToCommands request)
     {
-      report_engine.display(department_repository.get_the_departments_in(request.map<DepartmentItem>()));
+      report_engine.display(store_catalog.get_the_departments_in(request.map<DepartmentItem>()));
     }
   }
 }
