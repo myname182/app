@@ -22,9 +22,9 @@ namespace app.specs
 
       static StubItem result;
     }
-  }
 
-  public class StubItem
-  {
+    public class StubItem
+    {
+    }
   }
 }

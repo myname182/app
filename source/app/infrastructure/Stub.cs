@@ -4,7 +4,7 @@
   {
     public static StubType with<StubType>() where StubType : new()
     {
-      throw new System.NotImplementedException();
+      return new StubType();
     }
   }
 }

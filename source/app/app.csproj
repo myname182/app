@@ -82,9 +82,11 @@
     <Compile Include="infrastructure\Stub.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\ProductItem.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\StubDepartmentRepository.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
     <Compile Include="web\core\aspnet\ASPHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
