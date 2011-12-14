@@ -30,6 +30,8 @@ namespace app.specs
 
           all_commands.Add(the_command_that_can_process);
           the_command_that_can_process.setup(x => x.can_process(request)).Return(true);
+
+          depends.on<IEnumerable<IProcessASingleRequest>>(all_commands);
         };
 
         Because b = () =>
