@@ -5,11 +5,10 @@ namespace app.web.core
 {
     using System;
 
-    public class CommandRegistry : IFindCommands
+  public class CommandRegistry : IFindCommands
   {
     IEnumerable<IProcessASingleRequest> commands;
-
-      private IProcessASingleRequest special_case;
+    IProcessASingleRequest special_case;
 
     public CommandRegistry(IEnumerable<IProcessASingleRequest> commands, IProcessASingleRequest specialCase)
     {
@@ -17,7 +16,7 @@ namespace app.web.core
         special_case = specialCase;
     }
 
-      public IProcessASingleRequest get_the_command_that_can_process(IProvideDetailsToCommands request)
+    public IProcessASingleRequest get_the_command_that_can_process(IProvideDetailsToCommands request)
     {
         try
         {
