@@ -8,6 +8,7 @@ namespace app
   {
     public Calculator(IDbConnection connection)
     {
+        connection.Open();
     }
 
     public int add(int first, int second)
