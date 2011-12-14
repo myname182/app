@@ -7,15 +7,17 @@ namespace app.web.core.aspnet
   {
     IProcessRequests front_controller;
 
-    public ASPHandler(IProcessRequests front_controller)
+    ICreateControllerRequests request_factory; 
+
+    public ASPHandler(IProcessRequests front_controller, ICreateControllerRequests requestFactory)
     {
-      this.front_controller = front_controller;
+        this.front_controller = front_controller;
+        request_factory = requestFactory;
     }
 
     public void ProcessRequest(HttpContext context)
     {
-
-      throw new NotImplementedException();
+        front_controller.process(request_factory.create_request_from(context));
     }
 
     public bool IsReusable
