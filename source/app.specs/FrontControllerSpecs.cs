@@ -37,6 +37,7 @@ namespace app.specs
       static IProcessASingleRequest command_that_can_process;
       static IProvideDetailsToCommands request;
       static IFindCommands command_registry;
+
     }
   }
 }
