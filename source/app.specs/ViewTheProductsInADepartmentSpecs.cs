@@ -29,16 +29,16 @@ namespace app.specs
                 product_repository.setup(x => x.get_all_products_in_department(the_department));
             };
 
-        private Because b = () => sut.process(request);
+        Because b = () => sut.process(request);
 
-        private It should_display_products_in_the_department =
+        It should_display_products_in_the_department =
             () => display_engine.received(x => x.display(the_products));
 
-        private static IProvideDetailsToCommands request;
-        private static IFindProducts product_repository;
-        private static IDisplayReports display_engine;
-        private static List<ProductItem> the_products;
-        private static DepartmentItem the_department;
+        static IProvideDetailsToCommands request;
+        static IFindProducts product_repository;
+        static IDisplayReports display_engine;
+        static List<ProductItem> the_products;
+        static DepartmentItem the_department;
     }
   }
 }
