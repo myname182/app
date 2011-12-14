@@ -1,0 +1,6 @@
+#!/bin/bash
+
+start_new_exercise
+git checkout -b "code_kata"
+git checkout code_kata
+
