@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.Odbc;
 using System.Linq;
 
 namespace app
@@ -17,7 +18,17 @@ namespace app
     {
       ensure_all_are_positive(first, second);
 
-      connection.Open();
+	  using (connection)
+	  using (IDbCommand command = connection.CreateCommand())
+	  {
+	  	command.Connection = connection;
+		  command.CommandType = CommandType.Text;
+		  
+	  	command.ExecuteNonQuery();
+
+	  }
+
+
 
       return first + second;
     }
