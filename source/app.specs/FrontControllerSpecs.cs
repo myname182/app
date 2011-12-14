@@ -1,20 +1,18 @@
-﻿ using Machine.Specifications;
- using app.web.core;
- using developwithpassion.specifications.rhinomocks;
- using developwithpassion.specifications.extensions;
+﻿using Machine.Specifications;
+using app.web.core;
+using developwithpassion.specifications.extensions;
+using developwithpassion.specifications.rhinomocks;
 
 namespace app.specs
-{  
-  [Subject(typeof(FrontController))]  
+{
+  [Subject(typeof(FrontController))]
   public class FrontControllerSpecs
   {
     public abstract class concern : Observes<IProcessRequests,
                                       FrontController>
     {
-        
     }
 
-   
     public class when_processing_an_request : concern
     {
       Establish c = () =>
@@ -24,12 +22,10 @@ namespace app.specs
         request = fake.an<IProvideDetailsToCommands>();
 
         command_registry.setup(x => x.get_the_command_that_can_process(request)).Return(command_that_can_process);
-
       };
+
       Because b = () =>
         sut.process(request);
-
-
 
       It should_delegate_the_processing_of_the_request_to_the_command_that_can_process_the_request = () =>
         command_that_can_process.received(x => x.process(request));
@@ -37,7 +33,6 @@ namespace app.specs
       static IProcessASingleRequest command_that_can_process;
       static IProvideDetailsToCommands request;
       static IFindCommands command_registry;
-
     }
   }
 }

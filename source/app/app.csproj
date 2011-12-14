@@ -80,6 +80,7 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
     <Compile Include="web\core\aspnet\ASPHandler.cs" />
+    <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\ICreateControllerRequests.cs" />
     <Compile Include="web\core\IFindCommands.cs" />
