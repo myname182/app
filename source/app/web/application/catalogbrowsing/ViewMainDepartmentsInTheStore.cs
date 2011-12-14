@@ -1,4 +1,5 @@
-﻿using app.web.application.catalogbrowsing.stubs;
+﻿using app.infrastructure;
+using app.web.application.catalogbrowsing.stubs;
 using app.web.core;
 using app.web.core.stubs;
 
@@ -15,8 +16,8 @@ namespace app.web.application.catalogbrowsing
       this.report_engine = report_engine;
     }
 
-    public ViewMainDepartmentsInTheStore():this(new StubDepartmentRepository(),
-      new StubDisplayEngine())
+    public ViewMainDepartmentsInTheStore():this(Stub.with<StubDepartmentRepository>(),
+      Stub.with<StubDisplayEngine>())
     {
     }
 

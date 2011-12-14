@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using app.infrastructure;
 using app.web.core.stubs;
 
 namespace app.web.core.aspnet
@@ -14,7 +15,7 @@ namespace app.web.core.aspnet
       request_factory = requestFactory;
     }
 
-    public ASPHandler():this(new FrontController(),new StubRequestFactory())
+    public ASPHandler():this(new FrontController(),Stub.with<StubRequestFactory>())
     {
     }
 

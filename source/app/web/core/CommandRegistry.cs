@@ -15,7 +15,7 @@ namespace app.web.core
       special_case = specialCase;
     }
 
-    public CommandRegistry():this(new StubCommands(),new StubMissingCommand())
+    public CommandRegistry():this(Stub.with<StubCommands>(),Stub.with<StubMissingCommand>())
     {
     }
 
