@@ -1,8 +1,7 @@
 ﻿namespace app.web.core
 {
-  public interface IProcessASingleRequest
+  public interface IProcessASingleRequest : ISupportAStory
   {
-    void process(IProvideDetailsToCommands request);
     bool can_process(IProvideDetailsToCommands request);
   }
 }
