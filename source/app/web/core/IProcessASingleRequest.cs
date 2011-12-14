@@ -1,6 +1,6 @@
 ﻿namespace app.web.core
 {
-  public interface IProcessRequests
+  public interface IProcessASingleRequest
   {
     void process(IProvideDetailsToCommands request);
   }

@@ -24,7 +24,7 @@ namespace app.specs
       {
         front_controller = depends.on<IProcessRequests>();
         request_factory = depends.on<ICreateControllerRequests>();
-        controller_request = new object();
+        controller_request = fake.an<IProvideDetailsToCommands>();
 
 
         the_current_context = ObjectFactory.web.create_http_context();
@@ -39,7 +39,7 @@ namespace app.specs
         front_controller.received(x => x.process(controller_request));
 
       static IProcessRequests front_controller;
-      static object controller_request;
+      static IProvideDetailsToCommands controller_request;
       static HttpContext the_current_context;
       static ICreateControllerRequests request_factory;
     }
