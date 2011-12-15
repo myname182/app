@@ -24,6 +24,7 @@ namespace app.specs
         the_current_context = ObjectFactory.web.create_http_context();
         view = fake.an<IHttpHandler>();
         view_factory = depends.on<ICreateWebFormViewsToDisplayReports>();
+        depends.on(the_current_context);
 
         view_factory.setup(x => x.create_view_that_can_display(the_report)).Return(view);
       };
