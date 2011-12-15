@@ -4,11 +4,11 @@ namespace app.infrastructure.containers.simple
 {
 	public class SingleDependencyFactory : ICreateASingleDependency
 	{
-		private IMatchAType asd;
+		private IMatchAType type_criteria;
 
-		public SingleDependencyFactory(IMatchAType asd)
+		public SingleDependencyFactory(IMatchAType type_criteria)
 		{
-			this.asd = asd;
+			this.type_criteria = type_criteria;
 
 		}
 
@@ -19,7 +19,7 @@ namespace app.infrastructure.containers.simple
 
 		public bool can_create(Type type)
 		{
-			return asd.matches(type);
+			return type_criteria.matches(type);
 		}
 	}
 }

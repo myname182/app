@@ -1,4 +1,5 @@
-﻿ using Machine.Specifications;
+﻿ using System.Data.SqlClient;
+ using Machine.Specifications;
  using app.infrastructure.containers.simple;
  using developwithpassion.specifications.rhinomocks;
  using developwithpassion.specifications.extensions;
@@ -33,6 +34,28 @@ namespace app.specs
 
       static bool result;
       static IMatchAType type_criteria;
+    }
+    public class when_creating_the_dependency : concern
+    {
+      Establish c = () =>
+      {
+        actual_item = new SqlConnection();
+        real_factory = depends.on<ICreateADependency>();
+
+        real_factory.setup(x => x.create()).Return(actual_item);
+      };
+
+      Because b = () =>
+        result = sut.create();
+
+
+      It should_return_the_item_created_by_the_actual_factory = () =>
+        result.ShouldEqual(actual_item);
+
+
+      static object result;
+      static object actual_item;
+      static ICreateADependency real_factory;
     }
   }
 }
