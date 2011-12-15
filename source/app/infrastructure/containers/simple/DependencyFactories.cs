@@ -6,18 +6,16 @@ namespace app.infrastructure.containers.simple
 {
   public class DependencyFactories : IFindFactoriesThatCanCreateDependencies
   {
-	  private IEnumerable<ICreateASingleDependency> asd;
+	  private IEnumerable<ICreateASingleDependency> factory_registry;
 
-	  public DependencyFactories(IEnumerable<ICreateASingleDependency> asd)
+	  public DependencyFactories(IEnumerable<ICreateASingleDependency> factory_registry)
 	  {
-		  this.asd = asd;
+		  this.factory_registry = factory_registry;
 	  }
-
-
 
 	  public ICreateASingleDependency get_factory_that_can_create(Type dependency)
 	  {
-	  	return asd.FirstOrDefault(x => x.can_create(dependency));
+	  	return factory_registry.First(x => x.can_create(dependency));
 	  }
   }
 }
