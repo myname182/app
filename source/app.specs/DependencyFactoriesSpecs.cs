@@ -21,12 +21,12 @@ namespace app.specs
     {
       public class and_it_has_the_dependency
       {
-
         Establish c = () =>
         {
           the_factory = fake.an<ICreateASingleDependency>();
           all_dependencies = Enumerable.Range(1,100).Select(x => fake.an<ICreateASingleDependency>()).ToList();
           the_factory.setup(x => x.can_create(typeof(SomeItem))).Return(true);
+          all_dependencies.Add(the_factory);
           depends.on<IEnumerable<ICreateASingleDependency>>(all_dependencies);
         };
 
