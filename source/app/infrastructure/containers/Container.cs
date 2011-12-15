@@ -13,7 +13,7 @@ namespace app.infrastructure.containers
     {
       get
       {
-        throw new NotImplementedException();
+          return facade_resolver();
       }
     }
   }
