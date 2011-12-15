@@ -1,22 +1,26 @@
-﻿namespace app.web.core.aspnet
-{
-    using System.Web;
+﻿using System.Web;
 
-    public class WebFormDisplayEngine : IDisplayReports
+namespace app.web.core.aspnet
+{
+  public class WebFormDisplayEngine : IDisplayReports
   {
+    GetTheCurrentHttpContext current_context_resolver;
     ICreateWebFormViewsToDisplayReports view_factory;
 
-        private readonly HttpContext context;
-
-        public WebFormDisplayEngine(ICreateWebFormViewsToDisplayReports view_factory, HttpContext context)
+    public WebFormDisplayEngine(GetTheCurrentHttpContext current_context_resolver,
+                                ICreateWebFormViewsToDisplayReports view_factory)
     {
-        this.view_factory = view_factory;
-        this.context = context;
+      this.current_context_resolver = current_context_resolver;
+      this.view_factory = view_factory;
     }
 
-        public void display<Report>(Report report)
+    public WebFormDisplayEngine():this(() => HttpContext.Current,null)
     {
-        view_factory.create_view_that_can_display(report).ProcessRequest(context);
+    }
+
+    public void display<Report>(Report report)
+    {
+      view_factory.create_view_that_can_display(report).ProcessRequest(current_context_resolver());
     }
   }
 }
