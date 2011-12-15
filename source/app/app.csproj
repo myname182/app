@@ -83,6 +83,7 @@
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
     <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
+    <Compile Include="infrastructure\containers\simple\FactoryMissingExceptionFactory.cs" />
     <Compile Include="infrastructure\containers\simple\DependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\ICreateASingleDependency.cs" />
     <Compile Include="infrastructure\containers\simple\IFindFactoriesThatCanCreateDependencies.cs" />
