@@ -1,7 +1,9 @@
 ﻿namespace app.web.core.aspnet
 {
-  public interface IFindPathsToWebForms 
+    using System.Web;
+
+    public interface IFindPathsToWebForms 
   {
-    void get_path_to_page_that_can_display<ReportModel>();
+    IHttpHandler get_path_to_page_that_can_display<ReportModel>();
   }
 }
