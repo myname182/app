@@ -2,9 +2,15 @@
 {
   public class WebFormDisplayEngine : IDisplayReports
   {
-    public void display<Report>(Report report)
-    {
-      throw new System.NotImplementedException();
-    }
+      ICreateWebFormViewsToDisplayReports viewsCreator; 
+      public WebFormDisplayEngine(ICreateWebFormViewsToDisplayReports viewsCreator)
+      {
+          this.viewsCreator = viewsCreator;
+      }
+
+     public void display<Report>(Report report)
+     {
+        viewsCreator.create_view_that_can_display(report);
+     }
   }
 }
