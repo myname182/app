@@ -79,7 +79,11 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="infrastructure\ILogInformation.cs" />
+    <Compile Include="infrastructure\ITimeThings.cs" />
     <Compile Include="infrastructure\Stub.cs" />
+    <Compile Include="infrastructure\stubs\StubLogger.cs" />
+    <Compile Include="infrastructure\stubs\StubTimer.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindInformationInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ProductItem.cs" />
@@ -103,6 +107,7 @@
     <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\TimedStory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

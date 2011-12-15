@@ -5,7 +5,7 @@ using app.web.core.stubs;
 
 namespace app.web.application.catalogbrowsing
 {
-  public class ViewMainDepartmentsInTheStore:ISupportAStory
+  public class ViewMainDepartmentsInTheStore : ISupportAStory
   {
     IFindInformationInTheStore store_catalog;
     IDisplayReports report_engine;
@@ -16,8 +16,8 @@ namespace app.web.application.catalogbrowsing
       this.report_engine = report_engine;
     }
 
-    public ViewMainDepartmentsInTheStore():this(Stub.with<StubStoreCatalog>(),
-      Stub.with<StubDisplayEngine>())
+    public ViewMainDepartmentsInTheStore() : this(Stub.with<StubStoreCatalog>(),
+                                                  Stub.with<StubDisplayEngine>())
     {
     }
 

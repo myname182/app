@@ -2,20 +2,20 @@
 {
   public class FrontController : IProcessRequests
   {
-      IFindCommands command_registry;
+    IFindCommands command_registry;
 
-      public FrontController(IFindCommands command_registry)
-      {
-          this.command_registry = command_registry;
-      }
+    public FrontController(IFindCommands command_registry)
+    {
+      this.command_registry = command_registry;
+    }
 
-    public FrontController():this(new CommandRegistry())
+    public FrontController() : this(new CommandRegistry())
     {
     }
 
     public void process(IProvideDetailsToCommands request)
-      {
-        command_registry.get_the_command_that_can_process(request).process(request);
-      }
+    {
+      command_registry.get_the_command_that_can_process(request).process(request);
+    }
   }
 }
