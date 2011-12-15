@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="ASPHandlerSpecs.cs" />
     <Compile Include="CalculatorSpecs.cs" />
+    <Compile Include="CallResolverSpecs.cs" />
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />

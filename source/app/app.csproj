@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="infrastructure\CallResolver.cs" />
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
     <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
