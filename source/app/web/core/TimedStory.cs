@@ -16,7 +16,7 @@ namespace app.web.core
       this.logger = logger;
     }
 
-    public TimedStory(ISupportAStory original):this(Stub.with<StubTimer>(),original, Stub.with<StubLogger>())
+    public TimedStory(ISupportAStory original) : this(Stub.with<StubTimer>(), original, Stub.with<StubLogger>())
     {
     }
 
@@ -24,7 +24,7 @@ namespace app.web.core
     {
       timer.start();
       original.process(request);
-      logger.informational(string.Format("The story {0} ran in:{1}",original.GetType().Name,timer.stop()));
+      logger.informational(string.Format("The story {0} ran in:{1}", original.GetType().Name, timer.stop()));
     }
   }
 }

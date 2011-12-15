@@ -1,7 +1,4 @@
 ﻿using System.Web;
-using System.Web.Compilation;
-using app.infrastructure;
-using app.web.core.aspnet.stubs;
 
 namespace app.web.core.aspnet
 {
@@ -14,10 +11,6 @@ namespace app.web.core.aspnet
     {
       this.view_path_registry = view_path_registry;
       this.page_factory = page_factory;
-    }
-
-    public WebFormViewFactory() : this(Stub.with<StubPagePathRegistry>(), BuildManager.CreateInstanceFromVirtualPath)
-    {
     }
 
     public IHttpHandler create_view_that_can_display<ReportModel>(ReportModel the_report)

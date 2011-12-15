@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using app.infrastructure;
-using app.web.core.stubs;
 
 namespace app.web.core
 {
@@ -14,10 +12,6 @@ namespace app.web.core
     {
       this.commands = commands;
       special_case = specialCase;
-    }
-
-    public CommandRegistry():this(Stub.with<StubCommands>(),Stub.with<StubMissingCommand>())
-    {
     }
 
     public IProcessASingleRequest get_the_command_that_can_process(IProvideDetailsToCommands request)

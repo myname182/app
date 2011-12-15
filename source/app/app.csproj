@@ -79,6 +79,9 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="infrastructure\containers\Container.cs" />
+    <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
+    <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
     <Compile Include="infrastructure\ILogInformation.cs" />
     <Compile Include="infrastructure\ITimeThings.cs" />
     <Compile Include="infrastructure\Stub.cs" />
@@ -90,7 +93,6 @@
     <Compile Include="web\application\catalogbrowsing\stubs\GetDepartmentProducts.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\GetDepartmentsInDepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\GetTheMainDepartments.cs" />
-    <Compile Include="web\application\catalogbrowsing\ViewAReport.cs" />
     <Compile Include="web\core\aspnet\ASPHandler.cs" />
     <Compile Include="web\core\aspnet\GetTheCurrentHttpContext.cs" />
     <Compile Include="web\core\aspnet\ICreateWebFormViewsToDisplayReports.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="web\core\aspnet\stubs\StubPagePathRegistry.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\TimedStory.cs" />
+    <Compile Include="web\core\ViewAReport.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,4 @@
-﻿using app.web.core;
-using app.web.core.aspnet;
-
-namespace app.web.application.catalogbrowsing
+namespace app.web.core
 {
   public class ViewAReport<ReportModel, Query> : ISupportAStory where Query : IQueryToFindA<ReportModel>, new()
   {
@@ -12,10 +9,6 @@ namespace app.web.application.catalogbrowsing
     {
       this.display_engine = display_engine;
       this.query = new Query();
-    }
-
-    public ViewAReport() : this(new WebFormDisplayEngine())
-    {
     }
 
     public void process(IProvideDetailsToCommands request)
