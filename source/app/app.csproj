@@ -87,12 +87,13 @@
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindInformationInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ProductItem.cs" />
-    <Compile Include="web\application\catalogbrowsing\stubs\StubStoreCatalog.cs" />
-    <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
-    <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
-    <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\stubs\GetDepartmentProducts.cs" />
+    <Compile Include="web\application\catalogbrowsing\stubs\GetDepartmentsInDepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\stubs\GetTheMainDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewAReport.cs" />
     <Compile Include="web\core\aspnet\ASPHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\FetchInformation.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\ICreateControllerRequests.cs" />
     <Compile Include="web\core\IDisplayReports .cs" />

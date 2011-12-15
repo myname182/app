@@ -118,13 +118,10 @@
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
-    <Compile Include="SomethingSpecs.cs" />
+    <Compile Include="ViewAReportSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="TimedStorySpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
-    <Compile Include="ViewMainDepartmentsInTheStoreSpecs.cs" />
-    <Compile Include="ViewTheDepartmentsInADepartmentSpecs.cs" />
-    <Compile Include="ViewTheProductsInADepartmentSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
