@@ -95,6 +95,7 @@
     <Compile Include="web\core\aspnet\GetTheCurrentHttpContext.cs" />
     <Compile Include="web\core\aspnet\ICreateWebFormViewsToDisplayReports.cs" />
     <Compile Include="web\core\aspnet\IFindPathsToWebForms .cs" />
+    <Compile Include="web\core\aspnet\PageFactory.cs" />
     <Compile Include="web\core\aspnet\WebFormDisplayEngine.cs" />
     <Compile Include="web\core\aspnet\WebFormViewFactory.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
