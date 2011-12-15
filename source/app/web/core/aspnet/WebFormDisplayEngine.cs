@@ -14,7 +14,7 @@ namespace app.web.core.aspnet
       this.view_factory = view_factory;
     }
 
-    public WebFormDisplayEngine():this(() => HttpContext.Current,null)
+    public WebFormDisplayEngine():this(() => HttpContext.Current,new WebFormViewFactory())
     {
     }
 

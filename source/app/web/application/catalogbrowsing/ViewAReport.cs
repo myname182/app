@@ -1,6 +1,5 @@
-﻿using app.infrastructure;
-using app.web.core;
-using app.web.core.stubs;
+﻿using app.web.core;
+using app.web.core.aspnet;
 
 namespace app.web.application.catalogbrowsing
 {
@@ -15,7 +14,7 @@ namespace app.web.application.catalogbrowsing
       this.query = new Query();
     }
 
-    public ViewAReport():this(Stub.with<StubDisplayEngine>())
+    public ViewAReport() : this(new WebFormDisplayEngine())
     {
     }
 

@@ -15,8 +15,8 @@ namespace app.web.core.stubs
     public IEnumerator<IProcessASingleRequest> GetEnumerator()
     {
       yield return new RequestCommand(x => true, new TimedStory(new ViewAReport<IEnumerable<ProductItem>, GetDepartmentProducts>())) ;
-      yield return new RequestCommand(x => true, new TimedStory(new ViewAReport<IEnumerable<DepartmentItem>, GetTheMainDepartments>()));
       yield return new RequestCommand(x => true, new TimedStory(new ViewAReport<IEnumerable<DepartmentItem>, GetDepartmentsInDepartment>()));
+      yield return new RequestCommand(x => true, new TimedStory(new ViewAReport<IEnumerable<DepartmentItem>, GetTheMainDepartments>()));
     }
   }
 }

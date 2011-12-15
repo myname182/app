@@ -94,6 +94,9 @@
     <Compile Include="web\core\aspnet\ASPHandler.cs" />
     <Compile Include="web\core\aspnet\GetTheCurrentHttpContext.cs" />
     <Compile Include="web\core\aspnet\ICreateWebFormViewsToDisplayReports.cs" />
+    <Compile Include="web\core\aspnet\IDisplayA.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="web\core\aspnet\IFindPathsToWebForms .cs" />
     <Compile Include="web\core\aspnet\PageFactory.cs" />
     <Compile Include="web\core\aspnet\WebFormDisplayEngine.cs" />
@@ -111,8 +114,8 @@
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestCriteria.cs" />
     <Compile Include="web\core\stubs\StubCommands.cs" />
-    <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
+    <Compile Include="web\core\aspnet\stubs\StubPagePathRegistry.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\TimedStory.cs" />
   </ItemGroup>
