@@ -16,20 +16,20 @@ namespace app.infrastructure.containers.simple
 
     public Dependency an<Dependency>()
     {
-      var factory = factories.get_factory_that_can_create(typeof(Dependency));
-      try
-      {
-        return (Dependency) factory.create();
-      }
-      catch (Exception ex)
-      {
-        throw exception_factory(ex, typeof(Dependency));
-      }
+      return (Dependency) an(typeof(Dependency));
     }
 
     public object an(Type dependency)
     {
-        return (factories.get_factory_that_can_create(dependency)).create();
+      var factory = factories.get_factory_that_can_create(dependency);
+      try
+      {
+        return factory.create();
+      }
+      catch (Exception ex)
+      {
+        throw exception_factory(ex, dependency);
+      }
     }
   }
 }
