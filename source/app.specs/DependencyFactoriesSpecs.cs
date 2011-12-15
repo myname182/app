@@ -16,9 +16,9 @@ namespace app.specs
     {
     }
 
-    public class when_finding_a_type_that_can_create_a_dependency : concern
+    public class when_finding_a_factory_that_can_create_a_dependency : concern
     {
-      public class and_it_does_not_have_the_dependency
+      public class and_it_does_not_have_the_factory
       {
         Establish c = () =>
         {
