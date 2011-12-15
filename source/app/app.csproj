@@ -93,6 +93,7 @@
     <Compile Include="infrastructure\containers\simple\ItemCreationExceptionFactory.cs" />
     <Compile Include="infrastructure\containers\simple\SimpleContainer.cs" />
     <Compile Include="infrastructure\containers\simple\SingleDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\simple\TypeMatchesSpecificType.cs" />
     <Compile Include="infrastructure\ICreateLoggers.cs" />
     <Compile Include="infrastructure\IGetTheTypeThatCalledMe.cs" />
     <Compile Include="infrastructure\ILogInformation.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="infrastructure\Stub.cs" />
     <Compile Include="infrastructure\stubs\StubLogger.cs" />
     <Compile Include="infrastructure\stubs\StubTimer.cs" />
+    <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindInformationInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ProductItem.cs" />

@@ -1,3 +1,4 @@
-#Product Backlog
+#Product Backlog (all features require tests around them)
 
-* Implement an IMatchAType that we can use for type matching with factories
+* Add an extension method to string called format_using, that allows us to string format in a left to right style ex: "{0} items".format_using(1)
+

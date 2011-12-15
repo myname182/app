@@ -4,16 +4,16 @@ namespace app.infrastructure.containers.simple
 {
   public class BasicDependencyFactory : ICreateADependency
   {
-  	private Func<object> the_connection;
+  	Func<object> factory;
 
-	  public BasicDependencyFactory(Func<object> the_connection)
+	  public BasicDependencyFactory(Func<object> factory)
 	  {
-	  	this.the_connection = the_connection;
+	  	this.factory = factory;
 	  }
 
   	public object create()
     {
-      return the_connection.Invoke();
+  	  return factory();
     }
   }
 }
