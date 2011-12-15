@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace app.infrastructure
 {
@@ -6,7 +7,7 @@ namespace app.infrastructure
   {
     public Type resolve()
     {
-      throw new NotImplementedException();
+      return new StackFrame(1).GetMethod().DeclaringType;
     }
   }
 }
