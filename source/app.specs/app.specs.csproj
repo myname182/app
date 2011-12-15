@@ -121,6 +121,9 @@
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="LogSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
+    <Compile Include="SimpleContainerSpecs.cs" />
+    <Compile Include="TextWriterLoggerFactorySpecs.cs" />
+    <Compile Include="TextWriterLoggerSpecs.cs" />
     <Compile Include="ViewAReportSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="TimedStorySpecs.cs" />

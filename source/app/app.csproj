@@ -83,11 +83,17 @@
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
     <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
+    <Compile Include="infrastructure\containers\simple\SimpleContainer.cs" />
     <Compile Include="infrastructure\ICreateLoggers.cs" />
     <Compile Include="infrastructure\IGetTheTypeThatCalledMe.cs" />
     <Compile Include="infrastructure\ILogInformation.cs" />
     <Compile Include="infrastructure\ITimeThings.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
+    <Compile Include="infrastructure\logging\simple\CreateLoggingWriter.cs" />
+    <Compile Include="infrastructure\logging\simple\LoggingFormats.cs" />
+    <Compile Include="infrastructure\logging\simple\LoggingMessageFormatter.cs" />
+    <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
+    <Compile Include="infrastructure\logging\simple\TextWriterLoggerFactory.cs" />
     <Compile Include="infrastructure\Stub.cs" />
     <Compile Include="infrastructure\stubs\StubLogger.cs" />
     <Compile Include="infrastructure\stubs\StubTimer.cs" />
