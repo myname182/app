@@ -1,6 +1,7 @@
-﻿using Machine.Specifications;
+﻿using System;
+using Machine.Specifications;
 using Rhino.Mocks;
-using app.web.application.catalogbrowsing;
+using app.infrastructure.containers;
 using app.web.core;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
@@ -18,9 +19,14 @@ namespace app.specs
     {
       Establish c = () =>
       {
+        container = depends.on<IFetchDependencies>();
+        query = fake.an<TheQuery>();
         display_engine = depends.on<IDisplayReports>();
         request = fake.an<IProvideDetailsToCommands>();
+
         model = new TheViewModel();
+        container.setup(x => x.an<TheQuery>()).Return(query);
+        query.setup(x => x.run_using(request)).Return(model);
       };
 
       Because b = () =>
@@ -32,7 +38,8 @@ namespace app.specs
       static IProvideDetailsToCommands request;
       static IDisplayReports display_engine;
       static TheViewModel model;
-      static IQueryToFindA<TheViewModel> query;
+      static IFetchDependencies container;
+      static TheQuery query;
     }
 
     public class TheViewModel
@@ -41,9 +48,9 @@ namespace app.specs
 
     public class TheQuery : IQueryToFindA<TheViewModel>
     {
-      public TheViewModel run_using(IProvideDetailsToCommands request)
+      public virtual TheViewModel run_using(IProvideDetailsToCommands request)
       {
-        return new TheViewModel();
+        throw new NotImplementedException();
       }
     }
   }
