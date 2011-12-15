@@ -29,7 +29,7 @@ namespace app.infrastructure.containers.simple
 
     public object an(Type dependency)
     {
-      throw new NotImplementedException();
+        return (factories.get_factory_that_can_create(dependency)).create();
     }
   }
 }
