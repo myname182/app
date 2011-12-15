@@ -5,7 +5,9 @@ using developwithpassion.specifications.rhinomocks;
 
 namespace app.specs
 {
-  [Subject(typeof(SimpleContainer))]
+    using developwithpassion.specifications.extensions;
+
+    [Subject(typeof(SimpleContainer))]
   public class SimpleContainerSpecs
   {
     public abstract class concern : Observes<IFetchDependencies,
@@ -18,20 +20,28 @@ namespace app.specs
       Establish c = () =>
       {
         the_dependency = new SomeDependency();
+        the_dependency_resolver = depends.on<IDependancyResolver>();
+        the_dependency_resolver.setup(x => x.Resolve<SomeDependency>()).Return(the_dependency);
+
       };
+        
+      Because b = () => result = sut.an<SomeDependency>();
 
-      Because b = () =>
-        result = sut.an<SomeDependency>();
-
-      It should_ = () =>
-        result.ShouldEqual(the_dependency);
-
+      It should_return_the_instance_of_dependancy = () => result.ShouldEqual(the_dependency);
+      
       static SomeDependency result;
       static SomeDependency the_dependency;
+      static IDependancyResolver the_dependency_resolver;
     }
 
     public class SomeDependency
     {
     }
+
+    public interface IDependancyResolver {
+        SomeDependency Resolve<SomeDpendancy>();
+    }
   }
+
+    
 }
