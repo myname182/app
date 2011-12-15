@@ -87,8 +87,10 @@
     <Compile Include="infrastructure\containers\simple\DependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\ICreateASingleDependency.cs" />
     <Compile Include="infrastructure\containers\simple\IFindFactoriesThatCanCreateDependencies.cs" />
+    <Compile Include="infrastructure\containers\simple\IMatchAType.cs" />
     <Compile Include="infrastructure\containers\simple\ItemCreationExceptionFactory.cs" />
     <Compile Include="infrastructure\containers\simple\SimpleContainer.cs" />
+    <Compile Include="infrastructure\containers\simple\SingleDependencyFactory.cs" />
     <Compile Include="infrastructure\ICreateLoggers.cs" />
     <Compile Include="infrastructure\IGetTheTypeThatCalledMe.cs" />
     <Compile Include="infrastructure\ILogInformation.cs" />

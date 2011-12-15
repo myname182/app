@@ -123,6 +123,7 @@
     <Compile Include="LogSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="SimpleContainerSpecs.cs" />
+    <Compile Include="SingleDependencyFactorySpecs.cs" />
     <Compile Include="TextWriterLoggerFactorySpecs.cs" />
     <Compile Include="TextWriterLoggerSpecs.cs" />
     <Compile Include="ViewAReportSpecs.cs" />
