@@ -46,6 +46,30 @@ namespace app.specs
         static Exception an_exception;
         static Exception the_custom_exception;
       }
+      public class at_runtime
+      {
+        Establish c = () =>
+        {
+          the_dependency = new SomeDependency();
+          factories = depends.on<IFindFactoriesThatCanCreateDependencies>();
+          factory = fake.an<ICreateASingleDependency>();
+
+          factories.setup(x => x.get_factory_that_can_create(typeof(SomeDependency))).Return(factory);
+          factory.setup(x => x.create()).Return(the_dependency);
+        };
+
+        Because b = () => 
+          result = sut.an(typeof(SomeDependency));
+
+        It should_return_the_instance_of_dependancy = () => 
+          result.ShouldEqual(the_dependency);
+
+        static object result;
+        static object the_dependency;
+        static ICreateASingleDependency factory;
+        static IFindFactoriesThatCanCreateDependencies factories;
+
+      }
       public class and_it_has_the_factory
       {
         Establish c = () =>

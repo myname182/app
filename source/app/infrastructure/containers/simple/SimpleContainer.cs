@@ -26,5 +26,10 @@ namespace app.infrastructure.containers.simple
         throw exception_factory(ex, typeof(Dependency));
       }
     }
+
+    public object an(Type dependency)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
