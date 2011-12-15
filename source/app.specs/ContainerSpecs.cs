@@ -1,7 +1,6 @@
 ﻿using Machine.Specifications;
 using app.infrastructure.containers;
 using developwithpassion.specifications.rhinomocks;
-using developwithpassion.specifications.extensions;
 
 namespace app.specs
 {
@@ -10,7 +9,6 @@ namespace app.specs
   {
     public abstract class concern : Observes
     {
-
     }
 
     public class when_providing_access_to_the_container_facade : concern
@@ -28,7 +26,6 @@ namespace app.specs
 
       It should_return_the_container_facade_created_by_the_assigned_resolver = () =>
         result.ShouldEqual(the_container_facade);
-
 
       static IFetchDependencies result;
       static IFetchDependencies the_container_facade;
