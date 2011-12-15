@@ -5,24 +5,26 @@ namespace app.infrastructure.containers.simple
   public class SimpleContainer : IFetchDependencies
   {
     IFindFactoriesThatCanCreateDependencies factories;
-    ItemCreationExceptionFactory exceptionFactory;
-    public SimpleContainer(IFindFactoriesThatCanCreateDependencies factories, ItemCreationExceptionFactory exceptionFactory)
+    ItemCreationExceptionFactory exception_factory;
+
+    public SimpleContainer(IFindFactoriesThatCanCreateDependencies factories,
+                           ItemCreationExceptionFactory exception_factory)
     {
       this.factories = factories;
-        this.exceptionFactory = exceptionFactory;
+      this.exception_factory = exception_factory;
     }
 
     public Dependency an<Dependency>()
     {
-        try
-        {
-            return (Dependency)factories.get_factory_that_can_create(typeof(Dependency)).create();
-
-        }
-        catch (Exception ex)
-        {
-            throw exceptionFactory(ex, typeof(Dependency));
-        }
+      var factory = factories.get_factory_that_can_create(typeof(Dependency));
+      try
+      {
+        return (Dependency) factory.create();
+      }
+      catch (Exception ex)
+      {
+        throw exception_factory(ex, typeof(Dependency));
+      }
     }
   }
 }
