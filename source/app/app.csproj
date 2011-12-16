@@ -97,6 +97,7 @@
     <Compile Include="infrastructure\containers\simple\SimpleContainer.cs" />
     <Compile Include="infrastructure\containers\simple\SingleDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\TypeMatchesSpecificType.cs" />
+    <Compile Include="infrastructure\IRunABehaviour.cs" />
     <Compile Include="infrastructure\StringExtensions.cs" />
     <Compile Include="infrastructure\ICreateLoggers.cs" />
     <Compile Include="infrastructure\IGetTheTypeThatCalledMe.cs" />
@@ -111,7 +112,13 @@
     <Compile Include="infrastructure\Stub.cs" />
     <Compile Include="infrastructure\stubs\StubLogger.cs" />
     <Compile Include="infrastructure\stubs\StubTimer.cs" />
+    <Compile Include="tasks\startup\IRegisterItemsInTheContainer.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="tasks\startup\StartupExceptionFactories.cs" />
+    <Compile Include="tasks\startup\steps\ConfiguringFrontController.cs" />
+    <Compile Include="tasks\startup\steps\ConfiguringInfrastructureServices.cs" />
+    <Compile Include="tasks\startup\steps\ConfiguringQueries.cs" />
+    <Compile Include="tasks\startup\steps\IRunAStartupStep.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindInformationInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ProductItem.cs" />
