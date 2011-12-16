@@ -14,6 +14,7 @@ namespace app.tasks.startup
 
 //      Start.by<ConfiguringInfrastructureServices>()
 //        .followed_by<ConfiguringFrontController>()
+//        .followed_by<ConfiguringFrontController>()
 //        .finish_by<ConfiguringQueries>();
     }
   }

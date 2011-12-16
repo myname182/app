@@ -4,6 +4,7 @@ using Machine.Specifications;
 using app.tasks.startup;
 using app.tasks.startup.steps;
 using developwithpassion.specifications.rhinomocks;
+using developwithpassion.specifications.extensions;
 
 namespace app.specs
 {
@@ -50,10 +51,17 @@ namespace app.specs
     public class when_followed_by_another_step : concern_for_a_created_chain_builder
     {
       Because b = () =>
-        sut.followed_by<SecondStep>();
+        result = sut.followed_by<SecondStep>();
 
-      It should_append_the_step_to_the_list_of_steps = () =>
-        all_steps.ShouldContainOnly(first_step,typeof(SecondStep));
+      It should_return_a_new_builder_to_carry_on_the_chain = () =>
+      {
+        var item = result.ShouldBeAn<StartupChainBuilder>();
+        item.ShouldNotEqual(sut);
+        item.all_steps.ShouldContain(typeof(SecondStep));
+        item.all_steps.ShouldNotEqual(all_steps);
+      };
+
+      static ICreateStartupChains result;
     }
 
     public class AStep : IRunAStartupStep
