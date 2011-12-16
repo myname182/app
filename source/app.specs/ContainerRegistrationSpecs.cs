@@ -33,7 +33,7 @@ namespace app.specs
         };
 
         Because b = () =>
-          sut.add_dependency<TheItem>();
+          sut.register<TheItem>();
 
         It should_register_the_item_using_the_correct_type_criteria_and_factory = () =>
         {
@@ -62,7 +62,7 @@ namespace app.specs
         };
 
         Because b = () =>
-          sut.add_dependency<TheContract, TheItem>();
+          sut.register<TheContract, TheItem>();
 
         It should_register_the_item_using_the_correct_type_criteria_and_factory = () =>
         {
@@ -81,6 +81,7 @@ namespace app.specs
         Establish c = () =>
         {
           items = new List<ICreateASingleDependency>();
+          item = new TheItem();
           factory = fake.an<ICreateADependency>();
           dependency_factory_provider = depends.on<ICreateDependencyFactories>();
 
@@ -91,7 +92,7 @@ namespace app.specs
         };
 
         Because b = () =>
-          sut.add_dependency(item);
+          sut.register(item);
 
         It should_register_the_item_using_the_correct_type_criteria_and_factory = () =>
         {

@@ -15,9 +15,9 @@ namespace app.tasks.startup.steps
 
     public void run()
     {
-      registration.add_dependency<CreateLoggingWriter>(() => Console.Out);
-      registration.add_dependency(LoggingFormats.simple);
-      registration.add_dependency<ICreateLoggers, TextWriterLoggerFactory>();
+      registration.register<CreateLoggingWriter>(() => Console.Out);
+      registration.register(LoggingFormats.simple);
+      registration.register<ICreateLoggers, TextWriterLoggerFactory>();
     }
   }
 }

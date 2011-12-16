@@ -5,9 +5,8 @@ namespace app.tasks.startup
 {
   public interface IRegisterItemsInTheContainer : IEnumerable<ICreateASingleDependency>
   {
-    void add_dependency<Implementation>();
-    void add_dependency<Contract, Implementation>() where Implementation : Contract;
-    void add_dependency<Dependency>(Dependency instance);
-    void add_factory_for<Contract>(ICreateADependency factory);
+    void register<Implementation>();
+    void register<Contract, Implementation>() where Implementation : Contract;
+    void register<Dependency>(Dependency instance);
   }
 }

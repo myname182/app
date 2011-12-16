@@ -13,9 +13,9 @@ namespace app.tasks.startup.steps
 
     public void run()
     {
-      registration.add_dependency<GetDepartmentProducts>();
-      registration.add_dependency<GetTheMainDepartments>();
-      registration.add_dependency<GetDepartmentsInDepartment>();
+      registration.register<GetDepartmentProducts>();
+      registration.register<GetTheMainDepartments>();
+      registration.register<GetDepartmentsInDepartment>();
     } 
   }
 }

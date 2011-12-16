@@ -19,7 +19,6 @@ namespace app.specs
    
     public class when_creating_a_dependency_factory : concern
     {
-
       public class to_automatically_create_an_item
       {
         Establish c = () =>
