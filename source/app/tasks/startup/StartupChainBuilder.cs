@@ -16,7 +16,8 @@ namespace app.tasks.startup
 
     void add(Type step)
     {
-      all_steps.Add(step);
+        if(!all_steps.Contains(step))
+        all_steps.Add(step);
     }
 
     public ICreateStartupChains followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
