@@ -5,9 +5,9 @@ namespace app.infrastructure.containers.simple
 {
   public class AutomaticDependencyFactory : ICreateADependency
   {
-    Type type_to_create;
-    IPickTheCtorForAType ctor_picker;
-    IFetchDependencies container;
+    public Type type_to_create;
+    public IPickTheCtorForAType ctor_picker;
+    public IFetchDependencies container;
 
     public AutomaticDependencyFactory(Type type_to_create, IPickTheCtorForAType ctor_picker, IFetchDependencies container)
     {

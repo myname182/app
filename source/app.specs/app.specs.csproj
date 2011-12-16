@@ -119,7 +119,9 @@
     <Compile Include="CalculatorSpecs.cs" />
     <Compile Include="CallResolverSpecs.cs" />
     <Compile Include="CommandRegistrySpecs.cs" />
+    <Compile Include="ContainerRegistrationSpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
+    <Compile Include="DependencyFactoriesProviderSpecs.cs" />
     <Compile Include="DependencyFactoriesSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="GreediestCtorSelectionSpecs.cs" />

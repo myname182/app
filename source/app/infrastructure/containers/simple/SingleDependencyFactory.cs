@@ -4,8 +4,8 @@ namespace app.infrastructure.containers.simple
 {
   public class SingleDependencyFactory : ICreateASingleDependency
   {
-    IMatchAType type_criteria;
-    ICreateADependency real_factory;
+    public IMatchAType type_criteria;
+    public ICreateADependency real_factory;
 
     public SingleDependencyFactory(IMatchAType type_criteria, ICreateADependency real_factory)
     {

@@ -87,10 +87,12 @@
     <Compile Include="infrastructure\containers\IPickTheCtorForAType.cs" />
     <Compile Include="infrastructure\containers\simple\AutomaticDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\BasicDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\simple\DependencyFactoriesProvider.cs" />
     <Compile Include="infrastructure\containers\simple\FactoryMissingExceptionFactory.cs" />
     <Compile Include="infrastructure\containers\simple\DependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\ICreateADependency.cs" />
     <Compile Include="infrastructure\containers\simple\ICreateASingleDependency.cs" />
+    <Compile Include="infrastructure\containers\simple\ICreateDependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\IFindFactoriesThatCanCreateDependencies.cs" />
     <Compile Include="infrastructure\containers\simple\IMatchAType.cs" />
     <Compile Include="infrastructure\containers\simple\ItemCreationExceptionFactory.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="infrastructure\Stub.cs" />
     <Compile Include="infrastructure\stubs\StubLogger.cs" />
     <Compile Include="infrastructure\stubs\StubTimer.cs" />
+    <Compile Include="tasks\startup\ContainerRegistration.cs" />
     <Compile Include="tasks\startup\IRegisterItemsInTheContainer.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="tasks\startup\StartupExceptionFactories.cs" />

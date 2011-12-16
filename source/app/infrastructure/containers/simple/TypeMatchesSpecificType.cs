@@ -4,7 +4,7 @@ namespace app.infrastructure.containers.simple
 {
   public class TypeMatchesSpecificType:IMatchAType
   {
-    Type type_to_match;
+    public Type type_to_match;
 
     public TypeMatchesSpecificType(Type type_to_match)
     {
