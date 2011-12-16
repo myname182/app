@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using app.tasks.startup.steps;
 
 namespace app.tasks.startup
@@ -7,6 +8,7 @@ namespace app.tasks.startup
   public class StartupChainBuilder : ICreateStartupChains
   {
     public IList<Type> all_steps;
+    static ICreateAStartupStep step_factory;
 
     public StartupChainBuilder(IList<Type> all_steps, Type first_step)
     {
@@ -27,7 +29,11 @@ namespace app.tasks.startup
 
     public void finish_by<AStartupStep>() where AStartupStep : IRunAStartupStep
     {
-      throw new NotImplementedException();
+         all_steps.Add(typeof(AStartupStep));
+        foreach (var step in all_steps)
+        {
+            (step_factory.create_step_from((step))).run();
+        }
     }
 
     public ICreateStartupChains followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
