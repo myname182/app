@@ -13,6 +13,7 @@ namespace app.specs.utility
     {
       public static ExpressionBuilder<ItemToTarget> to_target<ItemToTarget>()
       {
+        return new ExpressionBuilder<ItemToTarget>();
       }
 
       public class ExpressionBuilder<ItemToTarget>
