@@ -19,6 +19,7 @@ namespace app.tasks.startup
     static IList<ICreateASingleDependency> all_dependencies;
     static FactoryMissingExceptionFactory factory_missing_exception_factory;
     static ItemCreationExceptionFactory item_creation_exception_factory;
+    static IFetchDependencies container;
 
     public static void run()
     {
@@ -30,7 +31,7 @@ namespace app.tasks.startup
         (inner, type) =>
           new NotImplementedException("There was an error attempting to create a {0}".format(type.Name), inner);
 
-      IFetchDependencies container = new SimpleContainer(
+      container = new SimpleContainer(
         new DependencyFactories(all_dependencies,
                                 factory_missing_exception_factory),
         item_creation_exception_factory);
@@ -41,78 +42,45 @@ namespace app.tasks.startup
       populate_all_dependency_factories();
     }
 
-    static void add_dependency<Type>(Type instance)
+    static void add_dependency<Implementation>()
     {
-      all_dependencies.Add(new SingleDependencyFactory(TypeCriteria<Type>(),
-                                                       new BasicDependencyFactory(() => instance)));
+      add_dependency<Implementation,Implementation>();
+    }
+
+    static void add_dependency<Contract,Implementation>()
+    {
+      add_factory_for<Contract>(new AutomaticDependencyFactory(typeof(Implementation), new GreediestCtorSelection(), container));
+    }
+
+    static void add_dependency<Dependency>(Dependency instance)
+    {
+      add_factory_for<Dependency>(new BasicDependencyFactory(() => instance));
+    }
+
+    static void add_factory_for<Contract>(ICreateADependency factory)
+    {
+      all_dependencies.Add(new SingleDependencyFactory(TypeCriteria<Contract>(),
+                                                       factory));
     }
     static void populate_all_dependency_factories()
     {
-      add_dependency<ICreateControllerRequests>(Stub.with<StubRequestFactory>());
-      add_dependency<IFindCommands>(new CommandRegistry(Container.fetch.an<IEnumerable<IProcessASingleRequest>>(),
-        Container.fetch.an<IProcessASingleRequest>()));
-
-      all_dependencies.Add(new SingleDependencyFactory(TypeCriteria<IFindCommands>(),
-                                                       new BasicDependencyFactory(
-                                                         () =>
-                                                           new CommandRegistry(
-                                                           Container.fetch.an<IEnumerable<IProcessASingleRequest>>(),
-                                                           Stub.with<StubMissingCommand>()))));
-      all_dependencies.Add(new SingleDependencyFactory(TypeCriteria<IProcessRequests>(),
-                                                       new BasicDependencyFactory(
-                                                         () => new FrontController(Container.fetch.an<IFindCommands>()))));
-      all_dependencies.Add(
-        new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(IEnumerable<IProcessASingleRequest>)),
-                                    new BasicDependencyFactory(() => Stub.with<StubCommands>())));
-
-      PageFactory factory = BuildManager.CreateInstanceFromVirtualPath;
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(PageFactory)),
-                                                       new BasicDependencyFactory(() => factory)));
-
-      GetTheCurrentHttpContext current_context = () => HttpContext.Current;
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(GetTheCurrentHttpContext)),
-                                                       new BasicDependencyFactory(() => current_context)));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(GetDepartmentProducts)),
-                                                       new BasicDependencyFactory(() => new GetDepartmentProducts())));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(GetTheMainDepartments)),
-                                                       new BasicDependencyFactory(() => new GetTheMainDepartments())));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(GetDepartmentsInDepartment)),
-                                                       new BasicDependencyFactory(() => new GetDepartmentsInDepartment())));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(IDisplayReports)),
-                                                       new BasicDependencyFactory(
-                                                         () =>
-                                                           new WebFormDisplayEngine(
-                                                           Container.fetch.an<GetTheCurrentHttpContext>(),
-                                                           Container.fetch.an<ICreateWebFormViewsToDisplayReports>()))));
-
-      all_dependencies.Add(
-        new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(ICreateWebFormViewsToDisplayReports)),
-                                    new BasicDependencyFactory(
-                                      () => new WebFormViewFactory(Container.fetch.an<IFindPathsToWebForms>(),
-                                                                   Container.fetch.an<PageFactory>()))));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(IFindPathsToWebForms)),
-                                                       new BasicDependencyFactory(
-                                                         () => Stub.with<StubPagePathRegistry>())));
-
-      CreateLoggingWriter logging_writer = () => Console.Out;
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(CreateLoggingWriter)),
-                                                       new BasicDependencyFactory(() => logging_writer)));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(LoggingMessageFormatter)),
-                                                       new BasicDependencyFactory(() => LoggingFormats.simple)));
-
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(ICreateLoggers)),
-                                                       new BasicDependencyFactory(
-                                                         () =>
-                                                           new TextWriterLoggerFactory(
-                                                           Container.fetch.an<CreateLoggingWriter>(),
-                                                           Container.fetch.an<LoggingMessageFormatter>()))));
+      add_dependency(container);
+      add_dependency<ICreateControllerRequests, StubRequestFactory>();
+      add_dependency<IProcessRequests, FrontController>();
+      add_dependency<IFindCommands, CommandRegistry>();
+      add_dependency<IEnumerable<IProcessASingleRequest>, StubCommands>();
+      add_dependency<IProcessASingleRequest, StubMissingCommand>();
+      add_dependency<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
+      add_dependency<GetTheCurrentHttpContext>(() => HttpContext.Current);
+      add_dependency<GetDepartmentProducts>();
+      add_dependency<GetTheMainDepartments>();
+      add_dependency<GetDepartmentsInDepartment>();
+      add_dependency<IDisplayReports,WebFormDisplayEngine>();
+      add_dependency<ICreateWebFormViewsToDisplayReports,WebFormViewFactory>();
+      add_dependency<IFindPathsToWebForms,StubPagePathRegistry>();
+      add_dependency<CreateLoggingWriter>(() => Console.Out);
+      add_dependency(LoggingFormats.simple);
+      add_dependency<ICreateLoggers,TextWriterLoggerFactory>();
     }
 
     static TypeMatchesSpecificType TypeCriteria<SomeType>()
