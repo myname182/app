@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace app.tasks.startup
 {
-  public class StartupChainBuilder : ICreateStartupChains
+    using app.tasks.startup.steps;
+
+    public class StartupChainBuilder : ICreateStartupChains
   {
     IList<Type> all_steps;
 
@@ -12,5 +14,10 @@ namespace app.tasks.startup
       this.all_steps = all_steps;
       all_steps.Add(first_step);
     }
+
+      public void followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
+      {
+         all_steps.Add(typeof(AStartupStep));
+      }
   }
 }
