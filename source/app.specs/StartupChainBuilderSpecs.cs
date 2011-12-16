@@ -57,7 +57,7 @@ namespace app.specs
       {
         var item = result.ShouldBeAn<StartupChainBuilder>();
         item.ShouldNotEqual(sut);
-        item.all_steps.ShouldContain(typeof(SecondStep));
+        item.all_steps.ShouldContain(first_step,typeof(SecondStep));
         item.all_steps.ShouldNotEqual(all_steps);
       };
 
