@@ -22,6 +22,7 @@ namespace app.tasks.startup
     public ICreateStartupChains followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
     {
       add(typeof(AStartupStep));
+      throw new NotImplementedException();
     }
   }
 }
