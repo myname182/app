@@ -119,6 +119,7 @@
     <Compile Include="tasks\startup\IRegisterItemsInTheContainer.cs" />
     <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="tasks\startup\StartupChainBuilder.cs" />
     <Compile Include="tasks\startup\StartupChainBuilderFactory.cs" />
     <Compile Include="tasks\startup\StartupExceptionFactories.cs" />
     <Compile Include="tasks\startup\steps\ConfiguringFrontController.cs" />
