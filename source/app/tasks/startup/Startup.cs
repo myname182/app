@@ -44,10 +44,10 @@ namespace app.tasks.startup
 		{
 		  all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(ICreateControllerRequests)),
 		                                                   new BasicDependencyFactory(() => Stub.with<StubRequestFactory>())));
-      all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(IFindCommands)),
+      all_dependencies.Add(new SingleDependencyFactory(TypeCriteria<IFindCommands>(),
         new BasicDependencyFactory(() => new CommandRegistry(Container.fetch.an<IEnumerable<IProcessASingleRequest>>(),
           Stub.with<StubMissingCommand>()))));
-			all_dependencies.Add(new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(IProcessRequests)), new BasicDependencyFactory(() => new FrontController(Container.fetch.an<IFindCommands>()))));
+			all_dependencies.Add(new SingleDependencyFactory(TypeCriteria<IProcessRequests>(), new BasicDependencyFactory(() => new FrontController(Container.fetch.an<IFindCommands>()))));
 		  all_dependencies.Add(
 		    new SingleDependencyFactory(new TypeMatchesSpecificType(typeof(IEnumerable<IProcessASingleRequest>)),
 		                                new BasicDependencyFactory(() => Stub.with<StubCommands>())));
@@ -94,5 +94,10 @@ namespace app.tasks.startup
           Container.fetch.an<LoggingMessageFormatter>()))));
 
 		}
+
+	    private static TypeMatchesSpecificType TypeCriteria<SomeType>()
+	    {
+	        return new TypeMatchesSpecificType(typeof(SomeType));
+	    }
 	}
 }
