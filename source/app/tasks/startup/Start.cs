@@ -12,7 +12,7 @@ namespace app.tasks.startup
 
     public static ICreateStartupChains by<AStartupStep>() where AStartupStep : IRunAStartupStep
     {
-      throw new NotImplementedException();
+        return factory_resolver(typeof(AStartupStep));
     }
 
   }
