@@ -11,9 +11,10 @@ namespace app.tasks.startup
       //tests are mandatory (first or after)
 
       //once finish by is called, there is no further chaining
-//      Start.by<ConfiguringInfrastructureServices>()
-//        .followed_by<ConfiguringFrontController>()
-//        .finish_by<ConfiguringQueries>();
+
+      Start.by<ConfiguringInfrastructureServices>()
+        .followed_by<ConfiguringFrontController>()
+        .finish_by<ConfiguringQueries>();
     }
   }
 }

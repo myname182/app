@@ -20,6 +20,11 @@ namespace app.specs
 
     public class when_run : concern
     {
+        private Establish c = () =>
+                                  {
+                                      // Is this needed?  Probably not...
+                                  };
+
       Because b = () =>
         Startup.run();
 
