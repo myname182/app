@@ -21,9 +21,7 @@ namespace app.tasks.startup
 
     public ICreateStartupChains followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
     {
-        List<Type> new_list = new List<Type>(all_steps);
-      return new StartupChainBuilder(new_list, typeof(AStartupStep));
-      throw new NotImplementedException();
+      return new StartupChainBuilder(new List<Type>(all_steps), typeof(AStartupStep));
     }
   }
 }

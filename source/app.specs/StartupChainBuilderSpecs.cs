@@ -50,18 +50,40 @@ namespace app.specs
 
     public class when_followed_by_another_step : concern_for_a_created_chain_builder
     {
-      Because b = () =>
-        result = sut.followed_by<SecondStep>();
-
-      It should_return_a_new_builder_to_carry_on_the_chain = () =>
+      public class and_the_step_has_not_already_been_added : when_followed_by_another_step
       {
-        var item = result.ShouldBeAn<StartupChainBuilder>();
-        item.ShouldNotEqual(sut);
-        item.all_steps.ShouldContain(first_step,typeof(SecondStep));
-        item.all_steps.ShouldNotEqual(all_steps);
-      };
+        Because b = () =>
+          result = sut.followed_by<SecondStep>();
 
-      static ICreateStartupChains result;
+        It should_return_a_new_builder_to_carry_on_the_chain = () =>
+        {
+          var item = result.ShouldBeAn<StartupChainBuilder>();
+          item.ShouldNotEqual(sut);
+          item.all_steps.ShouldContain(typeof(SecondStep));
+          item.all_steps.ShouldNotEqual(all_steps);
+        };
+
+        static ICreateStartupChains result;
+
+      }
+
+      public class and_the_step_has_previously_been_added:when_followed_by_another_step
+      {
+        Establish c = () =>
+        {
+          all_steps.Add(typeof(SecondStep)); 
+        };
+
+        Because b = () =>
+          result = sut.followed_by<SecondStep>();
+
+        It should_not_add_the_step_again = () =>
+          all_steps.ShouldContainOnly(first_step,typeof(SecondStep));
+
+
+        static ICreateStartupChains result;
+
+      }
     }
 
     public class AStep : IRunAStartupStep
