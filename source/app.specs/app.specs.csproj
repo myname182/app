@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ASPHandlerSpecs.cs" />
+    <Compile Include="AutomaticDependencyFactorySpecs.cs" />
     <Compile Include="BasicDependencyFactorySpecs.cs" />
     <Compile Include="CalculatorSpecs.cs" />
     <Compile Include="CallResolverSpecs.cs" />
