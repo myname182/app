@@ -32,6 +32,30 @@ namespace app.specs
       static Type first_step;
     }
 
+    public abstract class concern_for_a_created_chain_builder : concern
+    {
+
+      Establish c = () =>
+      {
+        first_step = typeof(AStep);
+        all_steps = new List<Type>();
+        depends.on(all_steps);
+        depends.on(first_step);
+      };
+
+      protected static Type first_step;
+      protected static IList<Type> all_steps;
+    }
+
+    public class when_followed_by_another_step : concern_for_a_created_chain_builder
+    {
+      Because b = () =>
+        sut.followed_by<SecondStep>();
+
+      It should_append_the_step_to_the_list_of_steps = () =>
+        all_steps.ShouldContainOnly(first_step,typeof(SecondStep));
+    }
+
     public class AStep : IRunAStartupStep
     {
       public void run()
@@ -39,5 +63,13 @@ namespace app.specs
         throw new NotImplementedException();
       }
     }
+  public class SecondStep:IRunAStartupStep
+  {
+    public void run()
+    {
+      throw new NotImplementedException();
+    }
   }
+  }
+
 }
