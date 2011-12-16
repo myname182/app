@@ -125,6 +125,7 @@
     <Compile Include="tasks\startup\steps\ConfiguringFrontController.cs" />
     <Compile Include="tasks\startup\steps\ConfiguringInfrastructureServices.cs" />
     <Compile Include="tasks\startup\steps\ConfiguringQueries.cs" />
+    <Compile Include="tasks\startup\steps\ICreateAStartupStep.cs" />
     <Compile Include="tasks\startup\steps\IRunAStartupStep.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindInformationInTheStore.cs" />

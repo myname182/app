@@ -16,8 +16,18 @@ namespace app.tasks.startup
 
     void add(Type step)
     {
-        if(!all_steps.Contains(step))
-        all_steps.Add(step);
+      if (already_contains(step)) return;
+      all_steps.Add(step);
+    }
+
+    bool already_contains(Type step)
+    {
+      return all_steps.Contains(step);
+    }
+
+    public void finish_by<AStartupStep>() where AStartupStep : IRunAStartupStep
+    {
+      throw new NotImplementedException();
     }
 
     public ICreateStartupChains followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
