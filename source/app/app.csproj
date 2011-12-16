@@ -127,6 +127,7 @@
     <Compile Include="tasks\startup\steps\ConfiguringQueries.cs" />
     <Compile Include="tasks\startup\steps\ICreateAStartupStep.cs" />
     <Compile Include="tasks\startup\steps\IRunAStartupStep.cs" />
+    <Compile Include="tasks\startup\steps\StartupStepFactory.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindInformationInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ProductItem.cs" />

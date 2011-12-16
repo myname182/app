@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using app.infrastructure.containers;
 using app.tasks.startup.steps;
 
 namespace app.tasks.startup
@@ -14,7 +13,7 @@ namespace app.tasks.startup
     public StartupChainBuilder(IList<Type> all_steps, Type first_step, ICreateAStartupStep step_factory)
     {
       this.all_steps = all_steps;
-      step_factory = step_factory;
+      this.step_factory = step_factory;
       add(first_step);
     }
 
@@ -38,7 +37,7 @@ namespace app.tasks.startup
     public ICreateStartupChains followed_by<AStartupStep>() where AStartupStep : IRunAStartupStep
     {
       return new StartupChainBuilder(new List<Type>(all_steps), typeof(AStartupStep),
-                                     Container.fetch.an<ICreateAStartupStep>());
+                                     step_factory);
     }
   }
 }

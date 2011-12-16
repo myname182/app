@@ -133,6 +133,7 @@
     <Compile Include="StartupChainBuilderSpecs.cs" />
     <Compile Include="StartupExceptionFactories.cs" />
     <Compile Include="StartupSpecs.cs" />
+    <Compile Include="StartupStepFactorySpecs.cs" />
     <Compile Include="StringExtensionsSpecs.cs" />
     <Compile Include="TextWriterLoggerFactorySpecs.cs" />
     <Compile Include="TextWriterLoggerSpecs.cs" />
