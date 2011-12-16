@@ -129,6 +129,7 @@
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="SimpleContainerSpecs.cs" />
     <Compile Include="SingleDependencyFactorySpecs.cs" />
+    <Compile Include="StartSpecs.cs" />
     <Compile Include="StartupExceptionFactories.cs" />
     <Compile Include="StartupSpecs.cs" />
     <Compile Include="StringExtensionsSpecs.cs" />

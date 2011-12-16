@@ -1,29 +1,19 @@
 ﻿using System;
-using System.Net.NetworkInformation;
-using app.infrastructure.containers.simple;
+using app.tasks.startup.steps;
 
 namespace app.tasks.startup
 {
-    public static class Start
+  public static class Start
+  {
+    public static StartupChainBuilderFactory factory_resolver = delegate
     {
-        static Start()
-        {
-            
-        }
+      throw new NotImplementedException("We need to come back here once we have a real chain builder to created");
+    };
 
-        public static ICreateASingleDependency by<T>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static ICreateASingleDependency followed_by<T>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void finish_by<T>()
-        {
-            throw new NotImplementedException();
-        }
+    public static ICreateStartupChains by<AStartupStep>() where AStartupStep : IRunAStartupStep
+    {
+      throw new NotImplementedException();
     }
+
+  }
 }
