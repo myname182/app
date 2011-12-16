@@ -126,6 +126,7 @@
     <Compile Include="SimpleContainerSpecs.cs" />
     <Compile Include="SingleDependencyFactorySpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
+    <Compile Include="StringExtensionsSpecs.cs" />
     <Compile Include="TextWriterLoggerFactorySpecs.cs" />
     <Compile Include="TextWriterLoggerSpecs.cs" />
     <Compile Include="TypeMatchesSpecificTypeSpecs.cs" />

@@ -94,6 +94,7 @@
     <Compile Include="infrastructure\containers\simple\SimpleContainer.cs" />
     <Compile Include="infrastructure\containers\simple\SingleDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\TypeMatchesSpecificType.cs" />
+    <Compile Include="infrastructure\StringExtensions.cs" />
     <Compile Include="infrastructure\ICreateLoggers.cs" />
     <Compile Include="infrastructure\IGetTheTypeThatCalledMe.cs" />
     <Compile Include="infrastructure\ILogInformation.cs" />

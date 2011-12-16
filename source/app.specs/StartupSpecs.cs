@@ -4,6 +4,7 @@ using app.infrastructure.containers;
 using app.infrastructure.logging.simple;
 using app.tasks.startup;
 using app.web.core;
+using app.web.core.stubs;
 using developwithpassion.specifications.rhinomocks;
 using developwithpassion.specifications.extensions;
 
@@ -26,6 +27,7 @@ namespace app.specs
       {
         Container.fetch.an<IProcessRequests>().ShouldBeAn<FrontController>();
         Container.fetch.an<ICreateLoggers>().ShouldBeAn<TextWriterLoggerFactory>();
+        Container.fetch.an<ICreateControllerRequests>().ShouldBeAn<StubRequestFactory>();
       };
         
     }
